@@ -746,6 +746,20 @@ body.nav-open .menu-btn span:last-child { transform: translate(-50%, -50%) rotat
 }
 .project-card .tags { margin-top: auto; padding-top: 18px; }
 
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: gap 0.3s var(--ease-out), color 0.3s ease;
+}
+.project-link:hover { gap: 10px; }
+
 /* ---------- 6.3 工具行 / 联系信息 ---------- */
 .tool-row {
   display: grid;

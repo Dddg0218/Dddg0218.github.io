@@ -549,6 +549,27 @@
     return ok;
   }
 
+  /* 静态托管（GitHub Pages）没有后端时，走 FormSubmit 把内容直接发到邮箱。
+     第一次使用会收到一封确认邮件，点一下链接之后就能正常收信。 */
+  function sendViaEmail(data) {
+    var endpoint = 'https://formsubmit.co/ajax/1142638314@qq.com';
+    return fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        contact: data.contact,
+        message: data.message,
+        _subject: '个人主页留言 · ' + data.name,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    }).then(function (res) {
+      if (!res.ok) throw new Error('formsubmit ' + res.status);
+      return 'email';
+    });
+  }
+
   var counterEl = doc.querySelector('[data-counter-for="cf-message"]');
   var messageEl = $('#cf-message');
 
@@ -578,11 +599,13 @@
     if (contactSubmit) contactSubmit.classList.add('is-loading');
 
     apiFetch('/contact', { method: 'POST', body: JSON.stringify(data) })
-      .then(function () {
+      .then(function () { return 'server'; })
+      .catch(function () { return sendViaEmail(data); })
+      .then(function (via) {
         contactForm.reset();
         updateCounter();
         clearErrors();
-        toast('已收到，我会尽快回你');
+        toast(via === 'email' ? '已发到我的邮箱，会尽快回你' : '已收到，我会尽快回你');
       })
       .catch(function () {
         var text = '称呼：' + data.name + '\n联系方式：' + data.contact + '\n想聊的事：' + data.message;
