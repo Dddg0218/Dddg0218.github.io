@@ -1,255 +1,508 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="华为ia工程师，数据通信工程师，网络博主。" />
-  <title>邵逸煌 | 个人主页</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>邵逸煌 · 个人简介</title>
+<meta name="description" content="邵逸煌的个人简介：广东理工学院通信工程专业，在抖音做日常与穿搭内容，也用 AI 工具把重复的事情变简单。" />
+<meta name="author" content="邵逸煌" />
+<meta name="theme-color" content="#f7f2e9" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="邵逸煌 · 个人主页" />
+<meta property="og:description" content="广东理工学院通信工程专业，做短视频内容，也用 AI 工具提效。" />
+<meta property="og:image" content="assets/portrait.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preload" as="image" href="assets/portrait.jpg" />
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('syh-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "邵逸煌",
+  "alternateName": "Shao Yihuang",
+  "description": "广东理工学院通信工程专业学生，做抖音日常与穿搭内容，也用 AI 工具做自动化。",
+  "email": "mailto:1142638314@qq.com",
+  "knowsAbout": ["内容创作", "短视频运营", "AI Agent", "Python", "通信网络"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "广东理工学院" }
+}
+</script>
 </head>
-<body>
-  <header class="site-header">
-    <nav class="navbar container" aria-label="主导航">
-      <a class="logo" href="#home" aria-label="返回首页">邵<span>逸煌</span></a>
+<body class="is-loading">
+<a class="skip-link" href="#main">跳到主要内容</a>
 
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="nav-links">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-aura" id="cursor-aura" aria-hidden="true"></div>
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about">关于我</a></li>
-        <li><a href="#education">教育</a></li>
-        <li><a href="#skills">技能</a></li>
-        <li><a href="#contact">联系</a></li>
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="邵逸煌 · 回到顶部">
+      <span class="brand-mark" aria-hidden="true">邵</span>
+      <span class="brand-text">逸煌<em>SHAO&nbsp;YIHUANG</em></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="主导航">
+      <ul class="nav-list" id="nav-list">
+        <li><a class="nav-link" href="#about"><i>01</i>关于</a></li>
+        <li><a class="nav-link" href="#skills"><i>02</i>能力</a></li>
+        <li><a class="nav-link" href="#journey"><i>03</i>经历</a></li>
+        <li><a class="nav-link" href="#numbers"><i>04</i>数据</a></li>
+        <li><a class="nav-link" href="#platforms"><i>05</i>平台</a></li>
+        <li><a class="nav-link" href="#contact"><i>06</i>联系</a></li>
       </ul>
+      <span class="nav-pill" id="nav-pill" aria-hidden="true"></span>
     </nav>
-  </header>
 
-  <main id="home">
-    <section class="hero container">
-      <div class="hero-copy">
-        <p class="eyebrow">CONTENT CREATOR · DIGITAL STORYTELLER</p>
-        <h1>
-          邵逸煌
-        </h1>
-        <p class="hero-english-name">shaoyihuang</p>
-
-        <div class="hero-description">
-        </div>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#contact">联系我</a>
-          <a class="button button-secondary" href="#about">关于我</a>
-        </div>
-
-        <div class="social-row" aria-label="社媒链接">
-          <a href="https://www.douyin.com/" target="_blank" rel="noreferrer">抖音</a>
-          <a href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer">小红书</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">INS</a>
-          <a href="mailto:1142638314@qq.com">邮箱</a>
-        </div>
-      </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <div class="photo-frame">
-          <img src="portrait.jpe" alt="邵逸煌头像" />
-        </div>
-        <div class="floating-tag tag-one">4000w+ 浏览</div>
-        <div class="floating-tag tag-two">5w+ 粉丝</div>
-        <div class="mini-stat">
-          <strong>30w+</strong>
-          <span>INS / 小红书</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-panel" id="about">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">01 / ABOUT</p>
-          <h2>关于我<span class="dot">.</span></h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-story">
-            <p>
-              我是广东理工学院通信工程专业本科生，曾于广东白云机场商法公司实习，负责利用 AI Agent 实现信息整理、内容生成等工作任务自动化
-              我熟悉VS Code、华为云等开发环境，掌握HTML、CSS、JavaScript等以及Chatgpt、Claude等AI工具高效完成数据处理。我在抖音「冬冬冬瓜」「小臭冬瓜」分享日常和穿搭
-            </p>
-            <p>
-              具备专业媒体内容策划经验、熟练剪辑、拍摄。具备网络配置、Python 脚本开发基础
-            </p>
-          </div>
-
-          <div class="about-metrics">
-            <div class="metric-card">
-              <span class="metric-label">总浏览量</span>
-              <strong>2000万+</strong>
-            </div>
-            <div class="metric-card">
-              <span class="metric-label">总点赞量</span>
-              <strong>360万+</strong>
-            </div>
-            <div class="metric-card">
-              <span class="metric-label">高播放视频</span>
-              <strong>2 条 40万+</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="education">
-      <div class="container education-wrap">
-        <div class="section-heading">
-          <p class="eyebrow">02 / EDUCATION</p>
-          <h2>教育与方向<span class="dot">.</span></h2>
-          <p class="section-description">记录我的学习背景与成长过程。</p>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-date">2020 — 2024</div>
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <p class="timeline-type">UNDERGRADUATE</p>
-              <h3>通信工程专业</h3>
-              <p class="muted-text">通信工程 · 华为数据方向</p>
-              <p>
-                学习通信原理，网络基础等原理；HCIA|AI工程师认证、熟悉ENSP数通、融合昇腾、鸿蒙loT等根技术
-              </p>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-date">ONGOING</div>
-            <div class="timeline-marker" aria-hidden="true"></div>
-            <div class="timeline-content">
-              <p class="timeline-type">SELF-LEARNING</p>
-              <h3>技能提升与实践</h3>
-              <p class="muted-text">AI 工具 · 网页开发 · 内容生成</p>
-              <p>
-                通过学习与实践，提升对 AI 工具、网页开发和内容自动化的理解，并在工作中持续应用技术推动效率提升。
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">03 / SKILLS</p>
-          <h2>技能与工具<span class="dot">.</span></h2>
-          <p class="section-description">结合专业能力与实践经验，持续提升解决问题的效率。</p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card">
-            <span class="skill-number">01</span>
-            <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
-            <h3>AI与网络</h3>
-            <p>掌握通信交换基础、ai、华为云相关知识，能够理解信息流的运行逻辑。</p>
-            <div class="skill-tags">
-              <span>Ensp交换</span>
-              <span>华为云loTDA</span>
-              <span>LangChain</span>
-            </div>
-          </article>
-
-          <article class="skill-card">
-            <span class="skill-number">02</span>
-            <div class="skill-icon" aria-hidden="true">Tools</div>
-            <h3>数据与工具</h3>
-            <p>关注数据处理与自动化工作流，熟悉主流 AI 工具与轻量开发方式，提高工作效率。</p>
-            <div class="skill-tags">
-              <span>Docker Compose</span>
-              <span>Maven</span>
-              <span>Git</span>
-            </div>
-          </article>
-
-          <article class="skill-card">
-            <span class="skill-number">03</span>
-            <div class="skill-icon" aria-hidden="true">Frontend</div>
-            <h3>前端|端侧</h3>
-            <p>打造美观且交互性强的界面，实现页面元素的动态展示和响应式布局。</p>
-            <div class="skill-tags">
-              <span>HTML5|CSS3</span>
-              <span>HarmonyOS</span>
-              <span>Vue3</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-panel" id="impact">
-      <div class="container impact-wrap">
-        <div class="section-heading narrow">
-          <p class="eyebrow">04 / IMPACT</p>
-          <h2>我的项目经历<span class="dot">.</span></h2>
-        </div>
-
-        <div class="impact-grid">
-          <div class="impact-card accent-card">
-            <p class="impact-kicker">技术栈：Spring Boot、华为云 IoTDA、MQTT、MySQL、MongoDB等</p>
-            <h3>智能云宠物管理系统</h3>
-            <p>负责宠物档案、设备绑定、远程控制、实时看板、异常告警等后端接口设计与业
-务实现，并完成 HarmonyOS 端联调。负责宠物档案、设备绑定、远程控制、实时看板、异常告警等后端接口设计与业
-务实现，并完成 HarmonyOS 端联调。</p>
-          </div>
-          <div class="impact-card">
-            <p class="impact-kicker">技术栈：Android Studio、Java、XML、MVC 架构</p>
-            <h3>Android 简易计算器 APP 开发</h3>
-            <p>负责完整开发并整理报告</p>
-          </div>
-          <div class="impact-card">
-            <p class="impact-kicker">技术栈：Spring Boot 3.2、MyBatis-Plus、MySQL、Redis等</p>
-            <h3>智慧医疗顾问系统</h3>
-            <p>基于 LangChain4j + DashScope + Redis + MongoDB 实现 AI 健康咨询、
-症状导诊、智能挂号、预约查询与取消等多轮对话能力。负责后端核心业务开发，完成用户认证、角色权限、科室医生、医生排班、预约
-挂号、病历记录、支付记录、数据看板等模块。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="container">
-        <div class="contact-panel contact-editorial">
-          <div class="contact-copy">
-            <p class="eyebrow">05 / CONTACT</p>
-            <h2>联系方式</h2>
-          </div>
-
-          <div class="contact-main">
-            <a class="contact-email" href="mailto:1142638314@qq.com">1142638314@qq.com</a>
-            <div class="contact-links">
-              <a href="https://www.douyin.com/user/MS4wLjABAAAAFn8b0NWWMuqu9g_K-xJ_gd9Q9gguLBiBHbJC_p_NANJcBSk8jddmEpO68_0sz1jv?from_tab_name=main">抖音 ↗</a>
-              <a href="https://www.xiaohongshu.com/user/profile/62a02575000000001b0260da">小红书 ↗</a>
-              <a href="https://www.instagram.com/shaoyihuang90/" target="_blank" rel="noreferrer">INS ↗</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="logo footer-logo" href="#home">邵<span>逸煌</span></a>
-      <p>邵逸煌 版权所有，目前在用手机号：19700221461</p>
-      <p>© <span id="current-year"></span> 邵逸煌</p>
+    <div class="header-actions">
+      <button class="icon-btn" id="palette-open" type="button" aria-label="打开快捷命令面板" title="快捷命令 (Ctrl K)">
+        <kbd>⌘K</kbd>
+      </button>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深色 / 浅色主题" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></g></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 019.4 3.5a8.6 8.6 0 1011.1 11.1z"/></svg>
+      </button>
+      <a class="btn btn-sm btn-solid header-cta" href="#contact">聊聊合作</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开导航菜单">
+        <span></span><span></span>
+      </button>
     </div>
-  </footer>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+</header>
+<div class="nav-scrim" id="nav-scrim" hidden></div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-aura" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>Portfolio · 2026</p>
+        <h1 class="hero-title" data-reveal data-reveal-delay="60">
+          <span class="title-line">邵逸煌</span>
+        </h1>
+        <p class="hero-role" data-reveal data-reveal-delay="120">
+          <span>短视频内容</span><b aria-hidden="true">/</b><span>账号运营</span><b aria-hidden="true">/</b><span>AI 工具</span>
+        </p>
+        <p class="hero-lede" data-reveal data-reveal-delay="180">
+          我是邵逸煌，广东理工学院通信工程专业的学生。平时在抖音做日常和穿搭内容，也用 AI 工具把琐碎的事变得省事一点。<br />
+          这就是我的个人简介，下面是我做过的事、会的东西，还有联系方式。
+        </p>
+        <div class="hero-actions" data-reveal data-reveal-delay="240">
+          <a class="btn btn-solid" href="#contact" data-magnetic>
+            <span>联系我</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#about" data-magnetic>了解我</a>
+          <button class="btn btn-text" id="copy-email" type="button" data-email="1142638314@qq.com">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>复制邮箱</span>
+          </button>
+        </div>
+
+        <dl class="hero-stats" data-reveal data-reveal-delay="300">
+          <div class="stat">
+            <dt>内容播放</dt>
+            <dd><span class="num" data-count="40000000" data-format="wan">0</span><i>+</i></dd>
+          </div>
+          <div class="stat">
+            <dt>累计点赞</dt>
+            <dd><span class="num" data-count="3600000" data-format="wan">0</span><i>+</i></dd>
+          </div>
+          <div class="stat">
+            <dt>全网粉丝</dt>
+            <dd><span class="num" data-count="50000" data-format="wan">0</span><i>+</i></dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero-visual" data-reveal data-reveal-delay="160">
+        <figure class="portrait" id="portrait" data-tilt>
+          <div class="portrait-halo" aria-hidden="true"></div>
+          <figcaption class="portrait-cap">
+            <span>Guangdong · China</span>
+            <span>2026</span>
+          </figcaption>
+          <div class="portrait-frame">
+            <img src="assets/portrait.jpg" width="768" height="1024" alt="邵逸煌的照片" fetchpriority="high" decoding="async" />
+            <span class="portrait-shine" aria-hidden="true"></span>
+          </div>
+        </figure>
+
+        <div class="chip chip-a" data-float>
+          <b>4000万+</b><span>累计播放</span>
+        </div>
+        <div class="chip chip-b" data-float>
+          <b>2 条</b><span>40万+ 爆款</span>
+        </div>
+        <div class="chip chip-c" data-float>
+          <b>AI Agent</b><span>信息自动化</span>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#about" aria-label="向下浏览">
+      <span class="scroll-cue-line" aria-hidden="true"></span>
+      <span class="scroll-cue-text">SCROLL</span>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="container section-grid">
+      <div class="section-aside">
+        <p class="eyebrow" data-reveal>01 / About</p>
+        <h2 class="section-title" data-reveal data-reveal-delay="60">关于我<span class="dot">.</span></h2>
+        <p class="section-note" data-reveal data-reveal-delay="120">简单说：做内容，也做工具。</p>
+      </div>
+
+      <div class="section-body">
+        <p class="lead" data-reveal>
+          我是邵逸煌，广东理工学院通信工程专业，方向是华为数据。平时喜欢先把事情弄明白，再想办法做得省事一点。
+        </p>
+        <p data-reveal data-reveal-delay="60">
+          在广东白云机场商法公司实习时，我用 AI 做资料整理和初稿生成，把原来反复复制、粘贴、核对的活，变成几条固定的指令，跑一遍就出来了。
+        </p>
+        <p data-reveal data-reveal-delay="100">
+          课余时间，我在抖音「冬冬冬瓜」「小臭冬瓜」更新日常和穿搭。选题、拍摄、剪辑、发布、看数据，基本都是我一个人做。
+        </p>
+        <p data-reveal data-reveal-delay="140">
+          常用的工具是 VS Code、Python，还有 ChatGPT、Claude 这些 AI 助手，也会一点网络配置和写脚本。工具好不好用，主要看它能不能真的省下时间。
+        </p>
+
+        <dl class="facts" data-reveal data-reveal-delay="180">
+          <div><dt>学校</dt><dd>广东理工学院</dd></div>
+          <div><dt>专业</dt><dd>通信工程 · 华为数据方向</dd></div>
+          <div><dt>实习</dt><dd>广东白云机场商法公司</dd></div>
+          <div><dt>方向</dt><dd>内容创作 · AI 自动化</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section section-tint" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal>02 / Capability</p>
+          <h2 class="section-title" data-reveal data-reveal-delay="60">我能做什么<span class="dot">.</span></h2>
+        </div>
+        <p class="section-desc" data-reveal data-reveal-delay="120">
+          大概就是这四块：做内容、做运营、用 AI 提效、懂一点网络。
+        </p>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-card" data-tilt data-reveal>
+          <header><span class="skill-idx">01</span><h3>内容创作</h3></header>
+          <p>从选题、写脚本到拍摄剪辑，能把一件小事讲清楚。</p>
+          <ul class="tags"><li>选题策划</li><li>拍摄</li><li>剪辑</li><li>视觉表达</li></ul>
+          <div class="meter" role="img" aria-label="熟练度 92%"><span style="--v: 92%"></span></div>
+        </article>
+
+        <article class="skill-card" data-tilt data-reveal data-reveal-delay="80">
+          <header><span class="skill-idx">02</span><h3>传播增长</h3></header>
+          <p>看得懂数据，也知道下一条内容该改哪里。</p>
+          <ul class="tags"><li>账号运营</li><li>数据复盘</li><li>爆款拆解</li><li>多平台分发</li></ul>
+          <div class="meter" role="img" aria-label="熟练度 88%"><span style="--v: 88%"></span></div>
+        </article>
+
+        <article class="skill-card" data-tilt data-reveal data-reveal-delay="160">
+          <header><span class="skill-idx">03</span><h3>AI 与自动化</h3></header>
+          <p>用 AI 和脚本处理重复的活，省时间，也不容易出错。</p>
+          <ul class="tags"><li>Prompt 设计</li><li>Agent 工作流</li><li>Python</li><li>数据处理</li></ul>
+          <div class="meter" role="img" aria-label="熟练度 85%"><span style="--v: 85%"></span></div>
+        </article>
+
+        <article class="skill-card" data-tilt data-reveal data-reveal-delay="240">
+          <header><span class="skill-idx">04</span><h3>通信与工程</h3></header>
+          <p>学过通信和网络，遇到问题能顺着链路找原因。</p>
+          <ul class="tags"><li>通信原理</li><li>网络配置</li><li>Git</li><li>排障</li></ul>
+          <div class="meter" role="img" aria-label="熟练度 78%"><span style="--v: 78%"></span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="section" id="journey">
+    <div class="container section-grid">
+      <div class="section-aside">
+        <p class="eyebrow" data-reveal>03 / Journey</p>
+        <h2 class="section-title" data-reveal data-reveal-delay="60">我的经历<span class="dot">.</span></h2>
+        <p class="section-note" data-reveal data-reveal-delay="120">学习、实习、做内容，三段经历。</p>
+      </div>
+
+      <ol class="timeline" id="timeline">
+        <li class="timeline-item" data-reveal>
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <p class="timeline-kicker">Education · 在读</p>
+          <h3>广东理工学院 · 通信工程</h3>
+          <p class="timeline-meta">华为数据方向</p>
+          <p>学通信原理、网络基础、数据传输这些课。除了考试，也在意它们实际能怎么用。</p>
+        </li>
+        <li class="timeline-item" data-reveal data-reveal-delay="80">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <p class="timeline-kicker">Internship · 实习</p>
+          <h3>广东白云机场商法公司</h3>
+          <p class="timeline-meta">AI Agent · 信息与内容自动化</p>
+          <p>用 AI 把资料整理和内容生成的活做成流程：读材料、抓重点、出初稿，我只负责判断和修改。</p>
+        </li>
+        <li class="timeline-item" data-reveal data-reveal-delay="160">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <p class="timeline-kicker">Creation · 持续</p>
+          <h3>抖音「冬冬冬瓜」「小臭冬瓜」</h3>
+          <p class="timeline-meta">日常 · 穿搭 · 4000 万+ 播放</p>
+          <p>一个人从选题做到复盘。数据好的时候总结，不好的时候也总结。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ NUMBERS ============ -->
+  <section class="band" id="numbers">
+    <div class="band-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>内容策划</span><i>✳</i><span>拍摄剪辑</span><i>✳</i><span>账号运营</span><i>✳</i><span>数据复盘</span><i>✳</i><span>AI 自动化</span><i>✳</i><span>网络工程</span><i>✳</i>
+        <span>内容策划</span><i>✳</i><span>拍摄剪辑</span><i>✳</i><span>账号运营</span><i>✳</i><span>数据复盘</span><i>✳</i><span>AI 自动化</span><i>✳</i><span>网络工程</span><i>✳</i>
+      </div>
+    </div>
+
+    <div class="container band-inner">
+      <div class="band-head">
+        <p class="eyebrow" data-reveal>04 / Numbers</p>
+        <h2 class="section-title" data-reveal data-reveal-delay="60">一些数据<span class="dot">.</span></h2>
+        <p class="section-desc" data-reveal data-reveal-delay="120">这些是账号到目前为止的数据，还在慢慢涨。</p>
+      </div>
+
+      <div class="number-grid">
+        <div class="number-item" data-reveal>
+          <strong><span class="num" data-count="40000000" data-format="wan">0</span><i>+</i></strong>
+          <span>全网累计播放</span>
+        </div>
+        <div class="number-item" data-reveal data-reveal-delay="60">
+          <strong><span class="num" data-count="3600000" data-format="wan">0</span><i>+</i></strong>
+          <span>累计点赞</span>
+        </div>
+        <div class="number-item" data-reveal data-reveal-delay="120">
+          <strong><span class="num" data-count="50000" data-format="wan">0</span><i>+</i></strong>
+          <span>全网粉丝</span>
+        </div>
+        <div class="number-item" data-reveal data-reveal-delay="180">
+          <strong><span class="num" data-count="2">0</span><i>条</i></strong>
+          <span>40 万+ 播放爆款</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLATFORMS ============ -->
+  <section class="section" id="platforms">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-reveal>05 / Platforms</p>
+          <h2 class="section-title" data-reveal data-reveal-delay="60">我的账号<span class="dot">.</span></h2>
+        </div>
+        <p class="section-desc" data-reveal data-reveal-delay="120">主要更新这几个平台。</p>
+      </div>
+
+      <div class="platform-grid">
+        <a class="platform-card" href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer" data-reveal>
+          <span class="platform-idx">01</span>
+          <h3>抖音</h3>
+          <p class="platform-handle">@冬冬冬瓜 · @小臭冬瓜</p>
+          <p class="platform-desc">日常与穿搭，最常更新的地方。</p>
+          <span class="platform-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="platform-card" href="https://www.xiaohongshu.com/" target="_blank" rel="noopener noreferrer" data-reveal data-reveal-delay="80">
+          <span class="platform-idx">02</span>
+          <h3>小红书</h3>
+          <p class="platform-handle">图文 · 生活方式</p>
+          <p class="platform-desc">视频里放不下的细节，会写成图文。</p>
+          <span class="platform-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="platform-card" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" data-reveal data-reveal-delay="160">
+          <span class="platform-idx">03</span>
+          <h3>Instagram</h3>
+          <p class="platform-handle">@ins</p>
+          <p class="platform-desc">只放照片。</p>
+          <span class="platform-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow" data-reveal>06 / Contact</p>
+        <h2 class="section-title" data-reveal data-reveal-delay="60">联系我<span class="dot">.</span></h2>
+        <p class="lead" data-reveal data-reveal-delay="120">
+          有内容合作、账号代运营、AI 工具方面的问题，或者只是想认识一下，都可以直接找我。
+        </p>
+
+        <a class="contact-mail" href="mailto:1142638314@qq.com" data-reveal data-reveal-delay="160">
+          <span class="contact-mail-label">Email</span>
+          <span class="contact-mail-value">1142638314@qq.com</span>
+          <span class="contact-mail-copy" aria-hidden="true">复制</span>
+        </a>
+
+        <ul class="contact-links" data-reveal data-reveal-delay="200">
+          <li><a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer">抖音 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener noreferrer">小红书 <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a></li>
+        </ul>
+
+        <div class="contact-note" data-reveal data-reveal-delay="240">
+          <p class="contact-note-title">现在可以聊</p>
+          <ul class="contact-tags">
+            <li>内容合作</li>
+            <li>账号代运营</li>
+            <li>AI 流程搭建</li>
+            <li>拍摄 / 剪辑</li>
+          </ul>
+          <p class="contact-note-foot"><span class="pulse-dot" aria-hidden="true"></span>通常 24 小时内回复</p>
+        </div>
+      </div>
+
+      <div class="contact-panel" data-reveal data-reveal-delay="120">
+        <form class="form" id="contact-form" novalidate>
+          <div class="form-head">
+            <h3>给我留句话</h3>
+            <p>会直接进到我的收件箱（本地版会存成留言记录）。</p>
+          </div>
+
+          <div class="field">
+            <label for="cf-name">怎么称呼</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="你的名字或昵称" maxlength="40" required />
+            <small class="field-error" data-error-for="cf-name"></small>
+          </div>
+
+          <div class="field">
+            <label for="cf-contact">联系方式</label>
+            <input id="cf-contact" name="contact" type="text" autocomplete="email" placeholder="邮箱 / 微信 / 手机号" maxlength="80" required />
+            <small class="field-error" data-error-for="cf-contact"></small>
+          </div>
+
+          <div class="field">
+            <label for="cf-message">想聊的事</label>
+            <textarea id="cf-message" name="message" rows="4" placeholder="简单说说背景、时间和你想要的结果" maxlength="1200" required></textarea>
+            <div class="field-foot">
+              <small class="field-error" data-error-for="cf-message"></small>
+              <small class="counter" data-counter-for="cf-message">0 / 1200</small>
+            </div>
+          </div>
+
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <button class="btn btn-solid btn-block" type="submit" id="contact-submit">
+            <span class="btn-label">发送</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+          <p class="form-note">不会给你发广告，也不会把信息给第三方。</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="container guestbook-wrap">
+      <div class="guestbook" id="guestbook">
+        <div class="guestbook-head">
+          <div>
+            <p class="eyebrow">Guestbook</p>
+            <h3>留言板</h3>
+          </div>
+          <p class="guestbook-hint" id="guestbook-status">正在连接服务器…</p>
+        </div>
+
+        <form class="guestbook-form" id="guestbook-form">
+          <input id="gb-name" name="name" type="text" placeholder="昵称" maxlength="24" required />
+          <input id="gb-text" name="text" type="text" placeholder="留一句话（最多 120 字）" maxlength="120" required />
+          <button class="btn btn-ghost btn-sm" type="submit">发布</button>
+        </form>
+
+        <ul class="guestbook-list" id="guestbook-list" aria-live="polite"></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a class="brand brand-lg" href="#top">
+        <span class="brand-mark" aria-hidden="true">邵</span>
+        <span class="brand-text">逸煌<em>SHAO&nbsp;YIHUANG</em></span>
+      </a>
+      <p>短视频内容 · 账号运营 · AI 工具</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="页脚导航">
+      <div>
+        <h4>页面</h4>
+        <a href="#about">关于</a>
+        <a href="#skills">能力</a>
+        <a href="#journey">经历</a>
+      </div>
+      <div>
+        <h4>其他</h4>
+        <a href="#numbers">数据</a>
+        <a href="#platforms">平台</a>
+        <a href="#contact">联系</a>
+      </div>
+      <div>
+        <h4>找到我</h4>
+        <a href="mailto:1142638314@qq.com">邮箱</a>
+        <a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer">抖音</a>
+        <a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener noreferrer">小红书</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year">2026</span> 邵逸煌 · 保留所有权利</p>
+    <p class="footer-status">
+      <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+      <span id="status-text">检测后端…</span>
+      <span class="footer-sep" aria-hidden="true">/</span>
+      <span>本站访问 <b id="visit-count">—</b> 次</span>
+    </p>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 36 36" width="36" height="36" aria-hidden="true">
+    <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-opacity=".18" stroke-width="2"/>
+    <circle id="to-top-ring" cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+  </svg>
+  <svg class="to-top-arrow" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="toast-stack" id="toast-stack" role="status" aria-live="polite"></div>
+
+<dialog class="palette" id="palette" aria-label="快捷命令">
+  <div class="palette-input-wrap">
+    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <input id="palette-input" type="text" placeholder="跳转到… 或输入命令" autocomplete="off" spellcheck="false" />
+    <kbd>ESC</kbd>
+  </div>
+  <ul class="palette-list" id="palette-list" role="listbox" aria-label="命令列表"></ul>
+</dialog>
+
+<noscript><div class="noscript">本站的动画与交互需要 JavaScript，但所有内容都可以直接阅读。</div></noscript>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>
-
