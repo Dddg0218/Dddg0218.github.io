@@ -93,7 +93,7 @@
     <div class="hero-aura" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow" data-reveal>Portfolio · 2026</p>
+        <p class="eyebrow" data-reveal>Portfolio · <span data-year>2026</span></p>
         <h1 class="hero-title" data-reveal data-reveal-delay="60">
           <span class="title-line">邵逸煌</span>
         </h1>
@@ -136,7 +136,7 @@
           <div class="portrait-halo" aria-hidden="true"></div>
           <figcaption class="portrait-cap">
             <span>Guangzhou · China</span>
-            <span>2026</span>
+            <span data-year>2026</span>
           </figcaption>
           <div class="portrait-frame">
             <img src="assets/portrait.jpg" width="768" height="1024" alt="邵逸煌的照片" fetchpriority="high" decoding="async" />
@@ -557,8 +557,9 @@
             <p class="eyebrow">Guestbook</p>
             <h3>留言板</h3>
           </div>
-          <p class="guestbook-hint" id="guestbook-status">正在连接服务器…</p>
+          <p class="guestbook-hint" id="guestbook-status">本地草稿模式</p>
         </div>
+        <p class="guestbook-note">先留着自己玩：这个留言板还没接后端，留言只存在你这台电脑的浏览器里，相当于一个草稿箱，别人看不到。</p>
 
         <form class="guestbook-form" id="guestbook-form">
           <input id="gb-name" name="name" type="text" placeholder="昵称" maxlength="24" required />

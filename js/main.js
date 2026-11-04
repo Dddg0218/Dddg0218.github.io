@@ -551,11 +551,15 @@
 
   /* 静态托管（GitHub Pages）没有后端时，走 FormSubmit 把内容直接发到邮箱。
      第一次使用会收到一封确认邮件，点一下链接之后就能正常收信。 */
-  function sendViaEmail(data) {
-    var endpoint = 'https://formsubmit.co/ajax/1142638314@qq.com';
+  /* Formspree 表单 ID：在 https://formspree.io 建好表单后，
+     把 https://formspree.io/f/ 后面那一串填到这里即可。 */
+  var FORMSPREE_ID = 'xjyyjdby';
+
+  function sendViaFormspree(data) {
+    if (!FORMSPREE_ID) return Promise.reject(new Error('formspree 未配置'));
     var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 4000);
-    return fetch(endpoint, {
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 6000);
+    return fetch('https://formspree.io/f/' + FORMSPREE_ID, {
       method: 'POST',
       signal: ctrl ? ctrl.signal : undefined,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -563,13 +567,11 @@
         name: data.name,
         contact: data.contact,
         message: data.message,
-        _subject: '个人主页留言 · ' + data.name,
-        _template: 'table',
-        _captcha: 'false'
+        _subject: '个人主页留言 · ' + data.name
       })
     }).then(function (res) {
-      if (!res.ok) throw new Error('formsubmit ' + res.status);
-      return 'email';
+      if (!res.ok) throw new Error('formspree ' + res.status);
+      return 'formspree';
     }).finally(function () { clearTimeout(timer); });
   }
 
@@ -611,15 +613,14 @@
 
     apiFetch('/contact', { method: 'POST', body: JSON.stringify(data) })
       .then(function () { return 'server'; })
-      .catch(function () { return sendViaEmail(data); })
+      .catch(function () { return sendViaFormspree(data); })
       .catch(function () { return openMailDraft(data); })
       .then(function (via) {
         contactForm.reset();
         updateCounter();
         clearErrors();
-        if (via === 'email') toast('已发到我的邮箱，会尽快回你');
-        else if (via === 'mailto') toast('已帮你写好邮件，点发送就行');
-        else toast('已收到，我会尽快回你');
+        if (via === 'mailto') toast('已帮你写好邮件，点发送就行');
+        else toast('已发送，我会尽快回你');
       })
       .catch(function () {
         var text = '称呼：' + data.name + '\n联系方式：' + data.contact + '\n想聊的事：' + data.message;
@@ -706,15 +707,15 @@
       .then(function (data) {
         apiOnline = true;
         var items = (data.items || []).slice(0, 12);
-        if (!items.length) { renderGuestEmpty('还没有留言，来当第一个吧。'); }
+        if (!items.length) { renderGuestEmpty('还没有留言。写一条试试，只有你自己能看到。'); }
         else { gbList.textContent = ''; items.forEach(function (item) { renderGuestItem(item, false); }); }
         if (gbStatus) { gbStatus.textContent = '已连接 · 留言会实时保存'; gbStatus.classList.remove('is-offline'); }
       })
       .catch(function () {
         var local = readLocal(LOCAL_KEY);
         if (local.length) { gbList.textContent = ''; local.slice(0, 8).forEach(function (item) { renderGuestItem(item, false); }); }
-        else { renderGuestEmpty('后端未启动，留言会先暂存在这台电脑上。'); }
-        if (gbStatus) { gbStatus.textContent = '本地模式 · 未连接服务器'; gbStatus.classList.add('is-offline'); }
+        else { renderGuestEmpty('还没有留言。写一条试试，只有你自己能看到。'); }
+        if (gbStatus) { gbStatus.textContent = '草稿模式 · 只存在本机'; gbStatus.classList.add('is-offline'); }
       });
   }
 
@@ -745,7 +746,7 @@
         if (gbList && gbList.querySelector('.guestbook-empty')) gbList.textContent = '';
         renderGuestItem(item, true);
         gbForm.reset();
-        toast('已暂存在本地（后端未连接）');
+        toast('已存进本地草稿箱');
       })
       .finally(function () { if (submitBtn) submitBtn.disabled = false; });
   });
@@ -779,8 +780,10 @@
     });
 
   /* ---------------- 9. 初始化 ---------------- */
+  var currentYear = String(new Date().getFullYear());
   var yearEl = $('#year');
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  if (yearEl) yearEl.textContent = currentYear;
+  $$('[data-year]').forEach(function (el) { el.textContent = currentYear; });
 
   function boot() {
     body.classList.remove('is-loading');
