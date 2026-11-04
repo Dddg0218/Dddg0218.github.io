@@ -647,6 +647,143 @@ body.nav-open .menu-btn span:last-child { transform: translate(-50%, -50%) rotat
 }
 .facts dd { font-size: 0.98rem; font-weight: 600; letter-spacing: -0.01em; }
 
+/* ---------- 6.1 教育与荣誉 ---------- */
+.edu-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 5vw, 72px);
+  margin-top: clamp(48px, 6vw, 88px);
+  padding-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.edu-main h3 { margin-top: 14px; font-size: clamp(1.2rem, 1.8vw, 1.5rem); }
+.edu-time {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+.edu-list { margin-top: 18px; display: grid; gap: 10px; }
+.edu-list li { position: relative; padding-left: 14px; font-size: 0.9rem; color: var(--ink-2); }
+.edu-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.78em;
+  width: 5px; height: 1px;
+  background: var(--accent);
+}
+.edu-list b { margin-right: 8px; font-size: 0.78rem; font-weight: 600; color: var(--ink); }
+
+.award-list { margin-top: 14px; display: grid; }
+.award-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.award-mark {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  min-width: 38px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+/* ---------- 6.2 项目 ---------- */
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(22px, 2.6vw, 30px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 62%, transparent);
+  backdrop-filter: blur(6px);
+  transition: transform 0.5s var(--ease-out), border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--line));
+  background: var(--panel);
+  box-shadow: var(--shadow-md);
+}
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+.project-card h3 { margin-top: 14px; font-size: clamp(1.1rem, 1.5vw, 1.3rem); }
+.project-desc { margin-top: 10px; font-size: 0.9rem; line-height: 1.8; color: var(--ink-2); }
+.project-points { display: grid; gap: 7px; margin-top: 14px; }
+.project-points li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+.project-points li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.85em;
+  width: 5px; height: 1px;
+  background: var(--accent);
+  opacity: 0.8;
+}
+.project-card .tags { margin-top: auto; padding-top: 18px; }
+
+/* ---------- 6.3 工具行 / 联系信息 ---------- */
+.tool-row {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.tool-row li { display: flex; gap: 14px; font-size: 0.86rem; color: var(--ink-2); }
+.tool-row span {
+  flex: none;
+  width: 64px;
+  padding-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+}
+
+.contact-info {
+  display: grid;
+  gap: 1px;
+  margin-top: 14px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.contact-info li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+}
+.contact-info span { font-size: 0.72rem; letter-spacing: 0.1em; color: var(--ink-3); }
+.contact-info b { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; }
+
 /* ---------- 7. 能力 ---------- */
 .skill-grid {
   display: grid;
@@ -656,6 +793,8 @@ body.nav-open .menu-btn span:last-child { transform: translate(-50%, -50%) rotat
 
 .skill-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding: clamp(24px, 3vw, 34px);
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
@@ -696,6 +835,7 @@ body.nav-open .menu-btn span:last-child { transform: translate(-50%, -50%) rotat
 .skill-card > p { margin-top: 14px; color: var(--ink-2); font-size: 0.94rem; line-height: 1.8; min-height: 3.6em; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+.skill-card .tags { margin-bottom: 24px; }
 .tags li {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
@@ -709,7 +849,7 @@ body.nav-open .menu-btn span:last-child { transform: translate(-50%, -50%) rotat
 .skill-card:hover .tags li { border-color: color-mix(in srgb, var(--accent) 26%, transparent); }
 
 .meter {
-  margin-top: 24px;
+  margin-top: auto;
   height: 3px;
   border-radius: 3px;
   background: var(--line);
@@ -1320,6 +1460,8 @@ body.is-loading .hero-visual { opacity: 0; }
   .contact-grid { grid-template-columns: 1fr; }
   .number-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .number-item:nth-child(2n) { border-right: 0; }
+  .project-grid { grid-template-columns: 1fr; }
+  .edu-block { grid-template-columns: 1fr; }
   .platform-grid { grid-template-columns: 1fr; }
   .platform-card { min-height: 190px; }
   .footer-top { flex-direction: column; gap: 32px; }

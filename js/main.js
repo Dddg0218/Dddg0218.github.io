@@ -214,7 +214,7 @@
   var toTopRing = $('#to-top-ring');
   var navLinks = $$('.nav-link');
   var navPill = $('#nav-pill');
-  var sections = ['about', 'skills', 'journey', 'numbers', 'platforms', 'contact']
+  var sections = ['about', 'projects', 'skills', 'journey', 'numbers', 'platforms', 'contact']
     .map(function (id) { return doc.getElementById(id); })
     .filter(Boolean);
   var ringLength = 100.5;
@@ -403,11 +403,12 @@
   var commands = [
     { label: '回到顶部', hint: 'Home', run: function () { window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }); } },
     { label: '关于我', hint: '01', run: function () { go('#about'); } },
-    { label: '我能做什么', hint: '02', run: function () { go('#skills'); } },
-    { label: '走过的路', hint: '03', run: function () { go('#journey'); } },
-    { label: '被看见的次数', hint: '04', run: function () { go('#numbers'); } },
-    { label: '在哪儿能刷到我', hint: '05', run: function () { go('#platforms'); } },
-    { label: '联系我', hint: '06', run: function () { go('#contact'); } },
+    { label: '做过的项目', hint: '02', run: function () { go('#projects'); } },
+    { label: '技术栈', hint: '03', run: function () { go('#skills'); } },
+    { label: '经历', hint: '04', run: function () { go('#journey'); } },
+    { label: '账号数据', hint: '05', run: function () { go('#numbers'); } },
+    { label: '我的账号', hint: '06', run: function () { go('#platforms'); } },
+    { label: '联系我', hint: '07', run: function () { go('#contact'); } },
     { label: '复制邮箱', hint: 'Email', run: copyEmail },
     { label: '切换深色 / 浅色', hint: 'Theme', run: toggleTheme },
     { label: '去留言板', hint: 'Guestbook', run: function () { go('#guestbook'); setTimeout(function () { var el = $('#gb-name'); if (el) el.focus(); }, 620); } }
