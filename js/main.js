@@ -553,8 +553,11 @@
      第一次使用会收到一封确认邮件，点一下链接之后就能正常收信。 */
   function sendViaEmail(data) {
     var endpoint = 'https://formsubmit.co/ajax/1142638314@qq.com';
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 4000);
     return fetch(endpoint, {
       method: 'POST',
+      signal: ctrl ? ctrl.signal : undefined,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
         name: data.name,
@@ -567,7 +570,15 @@
     }).then(function (res) {
       if (!res.ok) throw new Error('formsubmit ' + res.status);
       return 'email';
-    });
+    }).finally(function () { clearTimeout(timer); });
+  }
+
+  /* 最后兜底：把内容写进邮件客户端 */
+  function openMailDraft(data) {
+    var subject = '个人主页留言 · ' + data.name;
+    var body = '称呼：' + data.name + '\n联系方式：' + data.contact + '\n\n' + data.message;
+    window.location.href = 'mailto:1142638314@qq.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    return Promise.resolve('mailto');
   }
 
   var counterEl = doc.querySelector('[data-counter-for="cf-message"]');
@@ -601,18 +612,21 @@
     apiFetch('/contact', { method: 'POST', body: JSON.stringify(data) })
       .then(function () { return 'server'; })
       .catch(function () { return sendViaEmail(data); })
+      .catch(function () { return openMailDraft(data); })
       .then(function (via) {
         contactForm.reset();
         updateCounter();
         clearErrors();
-        toast(via === 'email' ? '已发到我的邮箱，会尽快回你' : '已收到，我会尽快回你');
+        if (via === 'email') toast('已发到我的邮箱，会尽快回你');
+        else if (via === 'mailto') toast('已帮你写好邮件，点发送就行');
+        else toast('已收到，我会尽快回你');
       })
       .catch(function () {
         var text = '称呼：' + data.name + '\n联系方式：' + data.contact + '\n想聊的事：' + data.message;
         copyText(text).then(function () {
-          toast('后端未连接：内容已复制，可直接发邮件给我');
+          toast('发送失败：内容已复制，发邮件给我即可');
         }).catch(function () {
-          toast('后端未连接，请直接发邮件：1142638314@qq.com');
+          toast('发送失败，请直接发邮件：1142638314@qq.com');
         });
       })
       .finally(function () {
